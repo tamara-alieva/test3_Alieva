@@ -35,3 +35,13 @@ TEST_CASE("Add Sberbank card credentials test") {
 	REQUIRE(manager.cards["Sberbank"].expirationDate == "08/28");
 	REQUIRE(manager.cards["Sberbank"].cvcCode == "123");
 }
+
+TEST_CASE("Add VTB card credentials test") {
+	PasswordManager manager;
+	CardCredentials cardData{ "VTB", "9876 5432 1098 7654", "10/29", "456" };
+	manager.addCard(cardData);
+	REQUIRE(manager.cards["VTB"].bank == "VTB");
+	REQUIRE(manager.cards["VTB"].number == "9876 5432 1098 7654");
+	REQUIRE(manager.cards["VTB"].expirationDate == "10/29");
+	REQUIRE(manager.cards["VTB"].cvcCode == "456");
+}
