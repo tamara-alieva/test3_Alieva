@@ -8,3 +8,5 @@
 *.vcxproj
 *.filters
 *.user
+/test3_Alieva/x64/Debug
+/x64/Debug
