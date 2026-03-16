@@ -19,6 +19,11 @@ void PasswordManager::addWebsite(WebsiteCredentials siteData) {
 	}
 }
 
+/**
+ * Add card credentials
+ *
+ * @param cardData the card credentials
+ */
 void PasswordManager::addCard(CardCredentials cardData) {
 	// to do full method implementation
 	if (cardData.bank == "VTB") {
