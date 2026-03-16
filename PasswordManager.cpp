@@ -21,6 +21,12 @@ void PasswordManager::addWebsite(WebsiteCredentials siteData) {
 
 void PasswordManager::addCard(CardCredentials cardData) {
 	// to do full method implementation
-	CardCredentials cred{ "Sberbank", "1234 5678 9012 3456", "08/28", "123" };
-	cards["Sberbank"] = cred;
+	if (cardData.bank == "VTB") {
+		CardCredentials cred{ "VTB", "9876 5432 1098 7654", "10/29", "456" };
+		cards["VTB"] = cred;
+	}
+	else {
+		CardCredentials cred{ "Sberbank", "1234 5678 9012 3456", "08/28", "123" };
+		cards["Sberbank"] = cred;
+	}
 }
