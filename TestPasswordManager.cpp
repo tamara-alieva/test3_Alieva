@@ -16,3 +16,12 @@ TEST_CASE("Add Yandex website credentials test") {
 	REQUIRE(manager.websites["Yandex"].login == "user@yandex.ru");
 	REQUIRE(manager.websites["Yandex"].password == "password123");
 }
+
+TEST_CASE("Add Google website credentials test") {
+	PasswordManager manager;
+	WebsiteCredentials siteData{ "Google", "user@gmail.com", "123456" };
+	manager.addWebsite(siteData);
+	REQUIRE(manager.websites["Google"].siteName == "Google");
+	REQUIRE(manager.websites["Google"].login == "user@gmail.com");
+	REQUIRE(manager.websites["Google"].password == "123456");
+}
