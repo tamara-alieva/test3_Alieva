@@ -36,7 +36,13 @@ void PasswordManager::addCard(CardCredentials cardData) {
 	}
 }
 
+/**
+ * Get all credential entries
+ *
+ * @return vector of unified website and card credentials
+ */
 vector<UnifiedCredentials> PasswordManager::getAllCredentials() {
+	// to do full method implementation
 	vector<UnifiedCredentials> result;
 
 	WebsiteCredentials siteYandex{ "Yandex", "user@yandex.ru", "password123" };
