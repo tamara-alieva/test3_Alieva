@@ -78,3 +78,21 @@ TEST_CASE("Get all credentials test") {
 	REQUIRE(foundSberbank);
 	REQUIRE(foundVTB);
 }
+
+TEST_CASE("Search credentials test") {
+	PasswordManager manager;
+	manager.addWebsite(WebsiteCredentials{ "Yandex", "user@yandex.ru", "password123" });
+	manager.addWebsite(WebsiteCredentials{ "Oracle Apex", "username@gmail.com", "123654" });
+	manager.addCard(CardCredentials{ "Sberbank", "1234 5678 9012 3456", "08/28", "123" });
+	string name = "ex";
+	vector<UnifiedCredentials> result = manager.searchCredentials(name);
+	REQUIRE(result.size() == 2);
+	bool foundYandex = false,
+		foundApex = false;
+	for (int i = 0; i < result.size(); i++) {
+		if (result[i].type == CredType::WEBSITE && result[i].website.siteName == "Yandex")
+			foundYandex = true;
+		if (result[i].type == CredType::WEBSITE && result[i].website.siteName == "Apex")
+			foundApex = true;
+	}
+}
