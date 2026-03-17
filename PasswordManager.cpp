@@ -63,6 +63,13 @@ vector<UnifiedCredentials> PasswordManager::getAllCredentials() {
 	return result;
 }
 
+/**
+ * Find credential entries by substring
+ *
+ * @param query the substring for searching
+ *
+ * @return vector of found website and card credentials
+ */
 vector<UnifiedCredentials> PasswordManager::searchCredentials(string query) {
 	// to do full method implementation
 	vector<UnifiedCredentials> result;
