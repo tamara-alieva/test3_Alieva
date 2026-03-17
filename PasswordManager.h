@@ -1,7 +1,13 @@
 #pragma once
 #include <map>
 #include <string>
+#include <vector>
 using namespace std;
+
+enum class  CredType {
+	WEBSITE,
+	CARD
+};
 
 struct WebsiteCredentials {
 	string siteName;
@@ -16,6 +22,12 @@ struct CardCredentials {
 	string cvcCode;
 };
 
+struct UnifiedCredentials {
+	CredType type;
+	WebsiteCredentials website;
+	CardCredentials card;
+};
+
 class PasswordManager {
 public:
 	map<string, WebsiteCredentials> websites;
@@ -23,5 +35,6 @@ public:
 	PasswordManager();
 	void addWebsite(WebsiteCredentials siteData);
 	void addCard(CardCredentials cardData);
+	vector<UnifiedCredentials> getAllCredentials();
 };
 

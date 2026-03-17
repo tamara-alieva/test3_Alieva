@@ -35,3 +35,24 @@ void PasswordManager::addCard(CardCredentials cardData) {
 		cards["Sberbank"] = cred;
 	}
 }
+
+vector<UnifiedCredentials> PasswordManager::getAllCredentials() {
+	vector<UnifiedCredentials> result;
+
+	WebsiteCredentials siteYandex{ "Yandex", "user@yandex.ru", "password123" };
+	WebsiteCredentials siteGoogle{ "Google", "user@gmail.com", "123456" };
+	CardCredentials cardSber{ "Sberbank", "1234 5678 9012 3456", "08/28", "123" };
+	CardCredentials cardVTB{ "VTB", "9876 5432 1098 7654", "10/29", "456" };
+
+	UnifiedCredentials credYandex; credYandex.type = CredType::WEBSITE; credYandex.website = siteYandex;
+	UnifiedCredentials credGoogle; credGoogle.type = CredType::WEBSITE; credGoogle.website = siteGoogle;
+	UnifiedCredentials credSber; credSber.type = CredType::CARD; credSber.card = cardSber;
+	UnifiedCredentials credVTB; credVTB.type = CredType::CARD; credVTB.card = cardVTB;
+
+	result.push_back(credYandex);
+	result.push_back(credGoogle);
+	result.push_back(credSber);
+	result.push_back(credVTB);
+
+	return result;
+}
