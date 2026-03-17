@@ -36,5 +36,6 @@ public:
 	void addWebsite(WebsiteCredentials siteData);
 	void addCard(CardCredentials cardData);
 	vector<UnifiedCredentials> getAllCredentials();
+	vector<UnifiedCredentials> searchCredentials(string query);
 };
 

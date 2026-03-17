@@ -62,3 +62,15 @@ vector<UnifiedCredentials> PasswordManager::getAllCredentials() {
 
 	return result;
 }
+
+vector<UnifiedCredentials> PasswordManager::searchCredentials(string query) {
+	// to do full method implementation
+	vector<UnifiedCredentials> result;
+	WebsiteCredentials siteYandex{ "Yandex", "user@yandex.ru", "password123" };
+	WebsiteCredentials siteApex{ "Oracle Apex", "username@gmail.com", "123654" };
+
+	result.push_back(UnifiedCredentials{ CredType::WEBSITE, siteYandex });
+	result.push_back(UnifiedCredentials{ CredType::WEBSITE, siteApex });
+
+	return result;
+}
